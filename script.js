@@ -22,8 +22,7 @@ const getCookies = () => {
     cookieContainer.innerHTML = cookies;
 }
 
-const getCookie = () =>{
-    const key = document.getElementById("key").value;
+const getCookie = (key) =>{
     const cookiesArr = document.cookie.split(';');
     //possibly need to decode cookie, need to look into this more
     for(var i = 0; i <cookiesArr.length; i++) {
