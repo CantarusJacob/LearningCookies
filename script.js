@@ -41,6 +41,16 @@ const getCookie = (key) =>{
     }
 }
 
+const alertSpecificCookie = () => {
+    const key = document.getElementById("key").value;
+    if(!checkCookie(key)){
+        alert("Cookie doesnt exist");
+    } else{
+        alert(getCookie(key));
+    }
+    
+}
+
 const checkCookie = (key) =>{
     const cookieValue = getCookie(key);
     if(cookieValue != ""){
