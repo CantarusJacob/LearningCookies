@@ -29,6 +29,7 @@ const getCookie = (key) =>{
     console.log("Key: " + key);
     const cookiesArr = document.cookie.split(';');
     //possibly need to decode cookie, need to look into this more
+    console.log(cookiesArr);
     for(var i = 0; i <cookiesArr.length; i++) {
         var cookie = cookiesArr[i];
         //while loop gets rid of leading spcaes
