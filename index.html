@@ -10,11 +10,15 @@
         <div id="cookiesContainer">
         </div>
 
-        <textarea id="key" name="Enter cookie key"></textarea>
-        <textarea id="value" name="Enter cookies value"></textarea>
+        <label for="key">Key</label>
+        <textarea id="key" name="Enter cookie key"></textarea></br>
+        <label for="key">Value</label>
+        <textarea id="value" name="Enter cookies value"></textarea></br>
 
         <input type="button" onclick="addCookies()" value="Add Cookie"/>
 
-        <input type="button" onclick="getCookies()" value="Get Cookie"/>
+        <input type="button" onclick="getCookies()" value="Get All Cookies"/>
+
+        <input type="button" onclick="getCookie()" value="Get Specific Cookie"/>
     </body>
 </html>

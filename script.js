@@ -8,7 +8,7 @@ const getDatePlusOffset = days =>{
     return d.toUTCString();
 }
 
-const addCookies = () => {
+const addCookie = () => {
     alert("Add cookies entered");
     const key = document.getElementById("key").value;
     const value = document.getElementById("value").value;
@@ -20,4 +20,43 @@ const getCookies = () => {
     const cookies = document.cookie;
     const cookieContainer = document.getElementById("cookiesContainer");
     cookieContainer.innerHTML = cookies;
+}
+
+const getCookie = () =>{
+    const key = document.getElementById("key").value;
+    const cookiesArr = document.cookie.split(';');
+    //possibly need to decode cookie, need to look into this more
+    for(var i = 0; i <cookiesArr.length; i++) {
+        var cookie = cookiesArr[i];
+        //while loop gets rid of leading spcaes
+        while (cookie.charAt(0) == ' ') {
+          cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(key) == 0) {
+          return cookie.substring(key.length, cookie.length);
+        }
+      }
+      return "";
+    }
+}
+
+const checkCookie = (key) =>{
+    const cookieValue = getCookie(key);
+    if(cookieValue != ""){
+        return true;
+    } else{
+        return false;
+    }
+}
+
+const deleteCookie = () =>{
+    const key = document.getElementById("key").value;
+    const cookieExists = checkCookie(key);
+    if(!cookieExists){
+        alert("Cookie doesnt exist");
+    }
+    else{
+        document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        alert(`Cookie: ${key} has been deleted`);
+    }
 }
