@@ -35,6 +35,7 @@ const getCookie = (key) =>{
         //while loop gets rid of leading spcaes
         while (cookie.charAt(0) == ' ') {
           cookie = cookie.substring(1);
+          console.log("     _" + cookie+"_")
         }
         if (cookie.indexOf(key) == 0) {
           return cookie.substring(key.length, cookie.length);
