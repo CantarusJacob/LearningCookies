@@ -26,6 +26,7 @@ const getCookie = (key) =>{
     if(key == undefined){
         const key = document.getElementById("key").value;
     }
+    console.log("Key: " + key);
     const cookiesArr = document.cookie.split(';');
     //possibly need to decode cookie, need to look into this more
     for(var i = 0; i <cookiesArr.length; i++) {
@@ -43,10 +44,10 @@ const getCookie = (key) =>{
 
 const alertSpecificCookie = () => {
     const key = document.getElementById("key").value;
-    if(!checkCookie(key)){
-        alert("Cookie doesnt exist");
+    if(getCookie(key) != ""){
+        alert("Cookie value: " + getCookie(key));
     } else{
-        alert(getCookie(key));
+        alert("Cookie does not exist");
     }
     
 }
