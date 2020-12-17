@@ -31,9 +31,10 @@ const getCookie = (key) =>{
     //possibly need to decode cookie, need to look into this more
     console.log(cookiesArr);
     for(let i = 0; i <cookiesArr.length; i++) {
+        console.log(i);
         let cookie = cookiesArr[i];
         //while loop gets rid of leading spcaes
-        while (cookie.charAt(0) == ' ') {
+        while(cookie.charAt(0) == ' ') {
           cookie = cookie.substring(1);
           console.log("     _" + cookie+"_")
         }
