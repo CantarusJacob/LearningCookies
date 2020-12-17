@@ -34,7 +34,6 @@ const getCookie = (key) =>{
         if (cookie.indexOf(key) == 0) {
           return cookie.substring(key.length, cookie.length);
         }
-      }
       return "";
     }
 }
