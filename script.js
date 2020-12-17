@@ -22,24 +22,10 @@ const getCookies = () => {
     cookieContainer.innerHTML = cookies;
 }
 
-const getCookie = () =>{
-    const key = document.getElementById("key").value;
-    const cookiesArr = document.cookie.split(';');
-    //possibly need to decode cookie, need to look into this more
-    for(var i = 0; i <cookiesArr.length; i++) {
-        var cookie = cookiesArr[i];
-        //while loop gets rid of leading spcaes
-        while (cookie.charAt(0) == ' ') {
-          cookie = cookie.substring(1);
-        }
-        if (cookie.indexOf(key) == 0) {
-          return cookie.substring(key.length, cookie.length);
-        }
-      return "";
-    }
-}
-
 const getCookie = (key) =>{
+    if(key == undefined){
+        const key = document.getElementById("key").value;
+    }
     const cookiesArr = document.cookie.split(';');
     //possibly need to decode cookie, need to look into this more
     for(var i = 0; i <cookiesArr.length; i++) {
