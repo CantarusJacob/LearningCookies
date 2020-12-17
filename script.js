@@ -10,9 +10,9 @@ const getDatePlusOffset = days =>{
 
 const addCookies = () => {
     alert("Add cookies entered");
-    //document.cookie = `name=kim`; //expires=${getDatePlusOffset(1)};path=/;
-    document.cookie = "username=John Doe";
-    alert("Cookies: "+ document.cookie);
+    const key = document.getElementById("key").value;
+    const value = document.getElementById("value").value;
+    document.cookie = `${key}=${value};expires=${getDatePlusOffset(1)};path=/`;
 }
 
 const getCookies = () => {
