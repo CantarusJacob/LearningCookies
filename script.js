@@ -39,7 +39,7 @@ const getCookie = (key) =>{
           console.log("     _" + cookie+"_")
         }
         if (cookie.indexOf(key) == 0) {
-          return cookie.substring(key.length, cookie.length);
+          return cookie.substring(key.length +1, cookie.length);
         }
     }
     return "";
