@@ -1,0 +1,54 @@
+<div class="pictures-container scroll" style="height:370px; overflow: hidden; ">
+    <div class="pictures" style="height: 400px; white-space:nowrap; overflow-x: scroll; overflow-y: hide; -webkit-overflow-scrolling:touch;">
+        {{#each pictures}}
+            {{#if pic}}
+                <a href={{linkToEvent}}>
+                <img src={{pic}} alt="picture" width="400" height="400"/>
+                </a>
+            {{/if}}
+        {{/each}}
+    </div>
+</div>
+
+===================================This above code works for most purposes but doesnt have click and drag=======================
+
+<div class="pictures-container scroll" style="overflow-y: auto; overflow-x: hidden; cursor: pointer">
+    <div class="pictures" style="display: flex;">
+        {{#each pictures}}
+            {{#if pic}}
+                <a href={{linkToEvent}} style="margin:1em; border: 1px solid #C60C30">
+                <img src={{pic}} alt="picture" style="max-width: none;"/>
+                </a>
+            {{/if}}
+        {{/each}}
+    </div>
+</div>
+
+<script>
+    const slider = document.querySelector(".scroll");
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    
+    slider.addEventListener("mousedown", e => {
+      isDown = true;
+      slider.classList.add("active");
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener("mouseleave", () => {
+      isDown = false;
+      slider.classList.remove("active");
+    });
+    slider.addEventListener("mouseup", () => {
+      isDown = false;
+      slider.classList.remove("active");
+    });
+    slider.addEventListener("mousemove", e => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = x - startX;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+</script>
